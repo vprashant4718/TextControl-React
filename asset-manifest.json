@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/TextControl-React/static/css/main.f855e6bc.css",
+    "main.js": "/TextControl-React/static/js/main.b39bd1d2.js",
+    "static/js/787.64f7bc69.chunk.js": "/TextControl-React/static/js/787.64f7bc69.chunk.js",
+    "index.html": "/TextControl-React/index.html",
+    "main.f855e6bc.css.map": "/TextControl-React/static/css/main.f855e6bc.css.map",
+    "main.b39bd1d2.js.map": "/TextControl-React/static/js/main.b39bd1d2.js.map",
+    "787.64f7bc69.chunk.js.map": "/TextControl-React/static/js/787.64f7bc69.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.b39bd1d2.js"
+  ]
+}
