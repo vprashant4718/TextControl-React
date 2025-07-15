@@ -1,20 +1,34 @@
 import React, {useState} from 'react';
 
 export default function Home(props) {
+
+  const [text, setText] = useState("");
+
+  const capitalizeFirst = () => {
+  let newText = text.charAt(0).toUpperCase() + text.slice(1);
+  setText(newText);
+}
+
+const trimExtraSpaces = () => {
+  let newText = text.replace(/\s+/g, ' ').trim();
+  setText(newText);
+}
+
  const toHandleUp=()=>{
    let newtext = text.toUpperCase();
-   settext(newtext);
+   setText(newtext);
   }
   const toHandleLo=()=>{
    let newtext = text.toLowerCase();
-   settext(newtext);
+   setText(newtext);
   }
+
  const toClear=(e)=>{
     
-    settext("");
+    setText("");
   }
  const toHandleChange=(e)=>{
-      settext(e.target.value) ;
+      setText(e.target.value) ;
       console.log(e.target.value)
   }
  const toCopy=(e)=>{
@@ -30,8 +44,16 @@ export default function Home(props) {
         e.target.focus();
   }
 
-  const [text, settext] = useState("");
- 
+  const titleCase = () => {
+  let newText = text.toLowerCase().split(' ').map(word => 
+    word.charAt(0).toUpperCase() + word.slice(1)
+  ).join(' ');
+  setText(newText);
+};
+
+ const spaceToComma = () => {
+  setText(text.replace(/\s+/g, ','));
+};
   
   return (
     <>
@@ -44,11 +66,15 @@ export default function Home(props) {
       <textarea className="form-control w-50 mx-auto" value={text} style={{backgroundColor:props.mode === "dark" ? "grey" : "white", color:props.mode=== "dark"? "white" : "black"}} onChange={toHandleChange} id="mytext" rows="3"></textarea>
     </div>
     <div>
-    <button type="submit" onClick={toHandleUp} className="btn btn-primary rounded mb-2 mx-2">Convert to Uppercase</button>
-    <button type="submit" onClick={toHandleLo} className="btn btn-primary rounded w-12 mb-2 mx-2">Convert to Lowercase</button>
-    <button type="submit" onClick={toClear} className="btn btn-danger rounded w-12 mb-2 mx-2">Clear</button>
+    <button type="submit" onClick={titleCase} className="btn btn-primary rounded mb-2 mx-2">Title Case </button>
+    <button type="submit" onClick={capitalizeFirst} className="btn btn-primary rounded mb-2 mx-2">capitalize First </button>
+    <button type="submit" onClick={toHandleUp} className="btn btn-primary rounded mb-2 mx-2">Uppercase</button>
+    <button type="submit" onClick={toHandleLo} className="btn btn-primary rounded w-12 mb-2 mx-2">Lowercase</button> <br/>
+    <button type="submit" onClick={trimExtraSpaces} className="btn btn-danger rounded w-12 mb-2 mx-2">Remove Spaces</button>
+    <button type="submit" onClick={spaceToComma} className="btn btn-danger rounded w-12 mb-2 mx-2">Add Commas </button>
    
     <button type="submit" onClick={toCopy} className="btn btn-success rounded w-12 mb-2 mx-2"> Copy</button>
+    <button type="submit" onClick={toClear} className="btn btn-danger rounded w-12 mb-2 mx-2">Clear</button>
     </div>
   </div>
   <div className='container text-center mx-auto' style={{color:props.mode=== "dark"? "white" : "black"}}>
