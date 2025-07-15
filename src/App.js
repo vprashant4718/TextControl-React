@@ -26,7 +26,8 @@ function App(props) {
 
   return (
     <>
-    <HashRouter>
+   <HashRouter basename="/">
+
           <Navbar heading={"MyTextControl"} mode={Navmode} toggleMode={toggleMode} btntext={btntext} />
     <Routes>
         <Route path="/" element={<Home mode={Navmode} />} />
